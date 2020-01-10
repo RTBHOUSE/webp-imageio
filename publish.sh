@@ -10,8 +10,8 @@ docker build -t ${builder_image} .
 if docker run -it --name ${builder_instance} ${builder_image}; then
   # copy build artifacts from builder docker instance
   so_destination=src/main/resources/META-INF/lib/linux_64/
-  mkdir -p so_destination
-  docker cp ${builder_instance}:/webp-imageio/build/src/main/c/libwebp-imageio.so so_destination
+  mkdir -p ${so_destination}
+  docker cp ${builder_instance}:/webp-imageio/build/src/main/c/libwebp-imageio.so ${so_destination}
   docker rm ${builder_instance}
   docker rmi ${builder_image}
 else
