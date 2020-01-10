@@ -18,13 +18,15 @@ package com.luciad.imageio.webp;
 import java.io.IOException;
 import java.nio.ByteOrder;
 
+import org.scijava.nativelib.NativeLibraryUtil;
+
 final class WebP {
   private static boolean NATIVE_LIBRARY_LOADED = false;
 
   static synchronized void loadNativeLibrary() {
     if (!NATIVE_LIBRARY_LOADED) {
       NATIVE_LIBRARY_LOADED = true;
-      System.loadLibrary("webp-imageio");
+      NativeLibraryUtil.loadNativeLibrary(WebP.class, "webp-imageio");
     }
   }
 
