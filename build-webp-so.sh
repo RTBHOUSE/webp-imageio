@@ -14,3 +14,12 @@ mkdir build
 cd build
 cmake ..
 cmake --build .
+
+# Copy .so into resources
+cd ..
+so_destination=src/main/resources/META-INF/lib/linux_64/
+mkdir -p ${so_destination}
+cp build/src/main/c/libwebp-imageio.so ${so_destination}
+
+# Publish
+./gradlew publishMavenPublicationToAdpilotRepository

@@ -72,5 +72,4 @@ writer.write(null, new IIOImage(image, null, null), writeParam);
 
 # Building
 
-Shared library is built inside docker container. JAR can be published to repository with 
-single command using publish.sh script.
+JAR can be built in docker and published to nexus running `publish.sh NEXUS_USER NEXUS_REPO`.

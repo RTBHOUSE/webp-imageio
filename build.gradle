@@ -31,9 +31,8 @@ publishing {
     repositories {
         maven {
             credentials {
-                // specify actual username and password in ~/.gradle/gradle.properties
-                username = adpilotUsername
-                password = adpilotPassword
+                username = "$System.env.NEXUS_USER"
+                password = "$System.env.NEXUS_PASSWORD"
             }
             name = "Adpilot"
             url = 'http://nexus.adpilot-rtb.net:8081/content/repositories/releases/'
