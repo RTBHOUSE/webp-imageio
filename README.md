@@ -1,13 +1,14 @@
 # Description
-[Java Image I/O](http://docs.oracle.com/javase/7/docs/api/javax/imageio/package-summary.html) reader and writer for the
+This is a fork of the [webp-imageio](https://bitbucket.org/luciad/webp-imageio/src/default/) project. 
+It provides [Java Image I/O](http://docs.oracle.com/javase/7/docs/api/javax/imageio/package-summary.html) reader and writer for the
 [Google WebP](https://developers.google.com/speed/webp/) image format.
 
 # License
 webp-imageio is distributed under the [Apache Software License](https://www.apache.org/licenses/LICENSE-2.0) version 2.0.
 
 # Usage
-- Add webp-imageio.jar to the classpath of your application
-- Ensure libwebp-imageio.so, libwebp-imageio.dylib or webp-imageio.dll is accessible on the Java native library path (java.library.path system property)
+- Run `publish.sh NEXUS_USERNAME NEXUS_PASSWORD` to build .so in docker and publish an artifact to nexus.
+- Add dependency to published jar in your project. 
 - The WebP reader and writer can be used like any other Image I/O reader and writer.
 
 ## Decoding
@@ -69,7 +70,3 @@ writer.setOutput(new FileImageOutputStream(new File("output.webp")));
 // Encode
 writer.write(null, new IIOImage(image, null, null), writeParam);
 ```
-
-# Building
-
-JAR can be built in docker and published to nexus running `publish.sh NEXUS_USER NEXUS_REPO`.
