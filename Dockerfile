@@ -10,4 +10,4 @@ COPY . /webp-imageio
 
 WORKDIR /webp-imageio
 
-CMD sh build-webp-so.sh
+CMD sh docker-entrypoint.sh
